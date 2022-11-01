@@ -1,0 +1,134 @@
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+#backgroundImage img {
+  width: 100vw;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+}
+
+body {
+  background-color: hsl(235, 21%, 11%);
+  font-family: "Josefin Sans", monospace;
+  font-size: 18px;
+}
+
+#containerPrincipal {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+
+#firstContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
+  max-width: 550px;
+  color: white;
+  letter-spacing: 13px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+#firstContainer h1 {
+  font-size: 46px;
+}
+
+#firstContainer img {
+  width: 36px;
+  height: 36px;
+}
+
+#secondContainer,
+#thirdContainer {
+  display: flex;
+  width: 40vw;
+  max-width: 550px;
+  margin: 10px 0px 10px 0px;
+}
+
+.checklabel {
+  height: 20px;
+  width: 20px;
+  display: block;
+  border-radius: 100%;
+  position: absolute;
+  border: 1px solid rgb(128, 128, 128);
+  margin-left: 20px;
+  z-index: 0;
+}
+
+.mycheck {
+    margin-left: 3px;
+    margin-top: 3px;
+    width: 16px;
+    margin-left: 20px;
+    background-color: transparent;
+    /* opacity: 0%; */
+    z-index: 1;
+}
+
+#secondContainer {
+    background-color: hsl(235, 24%, 19%);
+    height: 68px;
+    border-radius: 2%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#secondContainer .text{
+    background-color: transparent;
+    width: 88%;
+    height: 100%;
+}
+
+input::placeholder {
+    font-size: 18px;
+}
+
+#thirdContainer {
+    background-color: hsl(235, 24%, 19%);
+    height: 88%;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: column;
+    /* border-bottom: 1px solid rgb(128, 128, 128); */
+}
+
+.item {
+    background-color: hsl(235, 24%, 19%);
+    height: 68px;
+    border-radius: 2%;
+    align-items: center;
+    border-bottom: 1px solid hsl(233, 14%, 35%);
+    display: flex;
+}
+
+.item p {
+    margin-left: 31px;
+    color: hsl(234, 39%, 85%);
+}
+
+#ultimoItem {
+    display: flex;
+    justify-content: space-between;
+    height: 48px;
+    align-items: center;
+    align-content: center;
+    font-size: 14px;
+    color:hsl(234, 39%, 85%);
+}
+
+#filterContainer {
+    display: flex;
+}
+
+#ultimoItem p {
+    padding: 0px 20px 0px 20px;
+}
