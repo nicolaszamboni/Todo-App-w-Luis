@@ -109,7 +109,7 @@ input::placeholder {
     align-items: center;
     border-bottom: 1px solid hsl(233, 14%, 35%);
     display: flex;
-    
+    justify-content: space-between;
 }
 
 .item p {
@@ -142,3 +142,12 @@ footer p {
     margin-top: 30px;
     opacity: 60%;
 }
+
+.itemCheckbox {
+  display: flex;
+}
+
+.imagem {
+  margin-right: 20px;
+}
+
