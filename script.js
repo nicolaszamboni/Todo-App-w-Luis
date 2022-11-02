@@ -1,10 +1,10 @@
 let items = [
-  { name: "item1", id: 1 },
-  { name: "item2", id: 2 },
-  { name: "item3", id: 3 },
-  { name: "item4", id: 4 },
-  { name: "item5", id: 5 },
-  { name: "item6", id: 6 },
+  { name: "item1", id: 1, finished: true },
+  { name: "item2", id: 2, finished: false },
+  { name: "item3", id: 3, finished: true },
+  { name: "item4", id: 4, finished: false },
+  { name: "item5", id: 5, finished: false },
+  { name: "item6", id: 6, finished: false },
 ];
 
 let itemPai = document.querySelector("#thirdContainer");
@@ -18,10 +18,6 @@ const appendItems = (items) => {
     let divItemCheckbox = document.createElement("div");
     divItemCheckbox.className = "itemCheckbox";
 
-    let inputCheckbox = document.createElement("input");
-    inputCheckbox.type = "checkbox";
-    inputCheckbox.className = "mycheck";
-
     let label = document.createElement("label");
     label.className = "checklabel";
     label.setAttribute("for", "mycheck");
@@ -33,7 +29,11 @@ const appendItems = (items) => {
     imagem.className = "imagem";
     imagem.setAttribute("src", "images/icon-cross.svg");
 
-    divItemCheckbox.appendChild(inputCheckbox);
+    let imagemOk = document.createElement("img");
+    imagemOk.className = "imagemOk";
+    imagemOk.setAttribute("src", "images/icon-check.svg");
+
+    divItemCheckbox.appendChild(imagemOk)
     divItemCheckbox.appendChild(label);
     item.appendChild(divItemCheckbox);
     paragraph.appendChild(text);
@@ -41,6 +41,13 @@ const appendItems = (items) => {
     itemPai.appendChild(item);
     item.appendChild(imagem);
     excludeImg();
+
+    if(element.finished){
+      label.classList.add('finished')
+      divItemCheckbox.classList.add('finished')
+      imagemOk.classList.add('finished')
+      imagemOk.id = 'visible';
+    }
   });
 
   let ultimoItem = document.createElement("div");
@@ -53,7 +60,7 @@ const appendItems = (items) => {
   <p>Active</p>
   <p>Completed</p>
 </div>
-<p>Clear Completed</p>`;
+<p class='clear'>Clear Completed</p>`;
 
   itemPai.appendChild(ultimoItem);
 };
@@ -87,3 +94,35 @@ function excludeImg() {
     });
   }
 }
+
+itemPai.addEventListener('click', (event) => {
+  if(event.target.classList[0].includes('checklabel')||event.target.classList[0].includes('imagemOk')){
+    // console.log('entrou')
+    for(let i = 0; i < event.target.classList.length; i += 1){
+      if(event.target.classList[i].includes('finished')){
+      console.log('entrou')
+        
+        items.forEach((item) => {
+          if(event.target.parentNode.parentNode.innerHTML.includes(item.name)){
+            item.finished = false;
+            appendItems(items)
+          }
+        })
+      }else{
+        items.forEach((item) => {
+          if(event.target.parentNode.parentNode.innerHTML.includes(item.name)){
+            item.finished = true;
+            appendItems(items)
+          }
+        })
+      }
+    }
+  }
+
+  if(event.target.classList[0].includes('clear')){
+    items = items.filter((item) => {
+      return !item.finished 
+    })
+    appendItems(items)
+  }
+})

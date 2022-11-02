@@ -58,20 +58,9 @@ body {
   width: 20px;
   display: block;
   border-radius: 100%;
-  position: absolute;
   border: 1px solid rgb(128, 128, 128);
   margin-left: 20px;
   z-index: 0;
-}
-
-.mycheck {
-    margin-left: 3px;
-    margin-top: 3px;
-    width: 16px;
-    margin-left: 20px;
-    background-color: transparent;
-    /* opacity: 0%; */
-    z-index: 1;
 }
 
 #secondContainer {
@@ -149,5 +138,37 @@ footer p {
 
 .imagem {
   margin-right: 20px;
+  visibility: hidden;
+}
+.item:hover .imagem{
+  visibility: visible;
+}
+
+.item:hover{
+  background-color: hsl(220, 24%, 19%);
+}
+.finished{
+  text-decoration: line-through;
+}
+
+label.finished {
+  background-image: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+} 
+
+.imagemOk{
+  height: 10px;
+  top: 6px;
+  position: relative;
+  left: 37px;
+  z-index: 4;
+  visibility: hidden;
+}
+
+#visible{
+ visibility: visible;
+} 
+
+.clear:hover{
+  font-size: 110%;
 }
 
