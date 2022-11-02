@@ -33,7 +33,7 @@ const appendItems = (items) => {
     imagemOk.className = "imagemOk";
     imagemOk.setAttribute("src", "images/icon-check.svg");
 
-    divItemCheckbox.appendChild(imagemOk)
+    divItemCheckbox.appendChild(imagemOk);
     divItemCheckbox.appendChild(label);
     item.appendChild(divItemCheckbox);
     paragraph.appendChild(text);
@@ -42,11 +42,11 @@ const appendItems = (items) => {
     item.appendChild(imagem);
     excludeImg();
 
-    if(element.finished){
-      label.classList.add('finished')
-      divItemCheckbox.classList.add('finished')
-      imagemOk.classList.add('finished')
-      imagemOk.id = 'visible';
+    if (element.finished) {
+      label.classList.add("finished");
+      divItemCheckbox.classList.add("finished");
+      imagemOk.classList.add("finished");
+      imagemOk.id = "visible";
     }
   });
 
@@ -60,7 +60,7 @@ const appendItems = (items) => {
   <p>Active</p>
   <p>Completed</p>
 </div>
-<p class='clear'>Clear Completed</p>`;
+<p id='clear' class='clear'>Clear Completed</p>`;
 
   itemPai.appendChild(ultimoItem);
 };
@@ -95,34 +95,79 @@ function excludeImg() {
   }
 }
 
-itemPai.addEventListener('click', (event) => {
-  if(event.target.classList[0].includes('checklabel')||event.target.classList[0].includes('imagemOk')){
+itemPai.addEventListener("click", (event) => {
+  if (
+    event.target.classList[0].includes("checklabel") ||
+    event.target.classList[0].includes("imagemOk")
+  ) {
     // console.log('entrou')
-    for(let i = 0; i < event.target.classList.length; i += 1){
-      if(event.target.classList[i].includes('finished')){
-      console.log('entrou')
-        
+    for (let i = 0; i < event.target.classList.length; i += 1) {
+      if (event.target.classList[i].includes("finished")) {
+        console.log("entrou");
+
         items.forEach((item) => {
-          if(event.target.parentNode.parentNode.innerHTML.includes(item.name)){
+          if (
+            event.target.parentNode.parentNode.innerHTML.includes(item.name)
+          ) {
             item.finished = false;
-            appendItems(items)
+            appendItems(items);
           }
-        })
-      }else{
+        });
+      } else {
         items.forEach((item) => {
-          if(event.target.parentNode.parentNode.innerHTML.includes(item.name)){
+          if (
+            event.target.parentNode.parentNode.innerHTML.includes(item.name)
+          ) {
             item.finished = true;
-            appendItems(items)
+            appendItems(items);
           }
-        })
+        });
       }
     }
   }
 
-  if(event.target.classList[0].includes('clear')){
+  if (event.target.classList[0].includes("clear")) {
     items = items.filter((item) => {
-      return !item.finished 
-    })
-    appendItems(items)
+      return !item.finished;
+    });
+    appendItems(items);
   }
-})
+});
+
+function setTheme(themeName) {
+  localStorage.setItem('theme', themeName);
+  document.documentElement.className = themeName;
+}
+
+// function to toggle between light and dark theme
+let imageTheme = document.querySelector('.themeDark');
+let backgroundImage = document.querySelector('#backgroundImage img');
+function toggleTheme() {
+  if (localStorage.getItem('theme') === 'theme-dark') {
+      setTheme('theme-light');
+      imageTheme.setAttribute("src", "images/icon-moon.svg")
+      backgroundImage.setAttribute("src", "images/bg-desktop-light.jpg")
+  } else {
+      setTheme('theme-dark');
+      imageTheme.setAttribute("src", "images/icon-sun.svg")
+      backgroundImage.setAttribute("src", "images/bg-desktop-dark.jpg")
+  }
+}
+
+// Immediately invoked function to set the theme on initial load
+(function () {
+  if (localStorage.getItem('theme') === 'theme-dark') {
+      setTheme('theme-dark');
+  } else {
+      setTheme('theme-light');
+  }
+})();
+
+  imageTheme.addEventListener('click', () => {
+    toggleTheme()
+  })
+
+  
+
+
+

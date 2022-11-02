@@ -26,13 +26,13 @@ The designs were created to the following widths:
 
 ### Dark Theme
 
-- Very Dark Blue: hsl(235, 21%, 11%)
-- Very Dark Desaturated Blue: hsl(235, 24%, 19%)
-- Light Grayish Blue: hsl(234, 39%, 85%)
-- Light Grayish Blue (hover): hsl(236, 33%, 92%)
+- Very Dark Blue: hsl(235, 21%, 11%) check
+- Very Dark Desaturated Blue: hsl(235, 24%, 19%)check
+- Light Grayish Blue: hsl(234, 39%, 85%)check
+- Light Grayish Blue (hover): hsl(236, 33%, 92%) check
 - Dark Grayish Blue: hsl(234, 11%, 52%)
-- Very Dark Grayish Blue: hsl(233, 14%, 35%)
-- Very Dark Grayish Blue: hsl(237, 14%, 26%)
+- Very Dark Grayish Blue: hsl(233, 14%, 35%) check
+- Very Dark Grayish Blue: hsl(237, 14%, 26%) check
 
 ## Typography
 
